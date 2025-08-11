@@ -72,7 +72,7 @@ const Index = () => {
               <strong className="text-foreground">VibeMatch (Co‑Founder)</strong> — Built AI-powered creator-sponsor matching platform with social media data integration (YouTube, Instagram APIs) and Cerebras inference engine, led B2B outreach to marketing agencies.
             </li>
             <li>
-              <strong className="text-foreground">Henri Mondor Hospital (Data Science Internship)</strong> — Developed time series forecasting models, built NLP pipeline, created funding analysis tool.
+              <strong className="text-foreground">Henri Mondor Hospital (Data Science Internship)</strong> — Developed time series forecasting models, built NLP pipeline and created funding analysis tool.
             </li>
             <li>
               <strong className="text-foreground">Sopra Steria (Quantum Computing Internship)</strong> — Implemented cold atom quantum optimization algorithms for telecom network infrastructure.
