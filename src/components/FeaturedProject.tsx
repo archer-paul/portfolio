@@ -1,13 +1,21 @@
 import { Button } from "@/components/ui/button";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { useI18n } from "@/context/I18nContext";
 
 const FeaturedProject = () => {
+  const { t, lang } = useI18n();
+  const desc: Record<"en"|"fr"|"de"|"es", string> = {
+    en: "AI-powered matching platform connecting content creators with sponsors using Cerebras for fast inference, behavioral analysis, and compatibility scoring.",
+    fr: "Plateforme de mise en relation créateurs‑sponsors dopée à l’IA, utilisant Cerebras pour une inférence rapide, l’analyse comportementale et un score de compatibilité.",
+    de: "KI‑gestützte Plattform, die Creator mit Sponsoren verbindet – mit Cerebras für schnelle Inferenz, Verhaltensanalyse und Kompatibilitäts‑Scoring.",
+    es: "Plataforma con IA que conecta creadores y patrocinadores usando Cerebras para inferencia rápida, análisis de comportamiento y puntuación de compatibilidad.",
+  };
   return (
     <article className="mb-10 rounded-lg border bg-card p-6 shadow-sm">
       <header className="mb-4">
         <h3 className="text-xl font-semibold">VibeMatch — AI-Powered Creator-Sponsor Matching</h3>
         <p className="text-muted-foreground">
-          AI-powered matching platform connecting content creators with sponsors using Cerebras for fast inference, behavioral analysis, and compatibility scoring.
+          {desc[lang]}
         </p>
       </header>
       <div className="mb-4">
@@ -30,7 +38,7 @@ const FeaturedProject = () => {
             rel="noreferrer"
             aria-label="Visit VibeMatch app"
           >
-            Visit App
+            {t("buttons.visitApp")}
           </a>
         </Button>
       </div>

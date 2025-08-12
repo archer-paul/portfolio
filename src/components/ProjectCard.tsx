@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
+import { useI18n } from "@/context/I18nContext";
 
 interface ProjectCardProps {
   title: string;
@@ -15,6 +16,7 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ title, description, href, videoId, appUrl }: ProjectCardProps) => {
   const [play, setPlay] = useState(false);
+  const { t } = useI18n();
   return (
     <article className="group rounded-lg border bg-card p-6 transition-colors hover:border-accent/40 hover:shadow-md">
       {videoId && (
@@ -59,13 +61,13 @@ const ProjectCard = ({ title, description, href, videoId, appUrl }: ProjectCardP
         <Button asChild variant="outline" size="sm" className="hover-scale">
           <a href={href} target="_blank" rel="noreferrer" aria-label={`${title} – GitHub`}>
             <FontAwesomeIcon icon={faGithub} />
-            <span>View on GitHub</span>
+            <span>{t("buttons.viewOnGithub")}</span>
           </a>
         </Button>
         {appUrl && (
           <Button asChild variant="accent" size="sm" className="hover-scale">
             <a href={appUrl} target="_blank" rel="noreferrer" aria-label={`${title} – Visit App`}>
-              <span>Visit App</span>
+              <span>{t("buttons.visitApp")}</span>
             </a>
           </Button>
         )}
