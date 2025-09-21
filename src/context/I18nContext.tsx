@@ -65,7 +65,7 @@ const dict = {
     },
     leadership: {
       surf: "President – Télécom Paris Surf Club — Organized Atlantic coast surf trips (Lacanau, Biarritz), managed logistics and accommodation for 40+ participants, coached beginners and grew club membership.",
-      forum: "General Secretary – Forum Télécom Paris — Managed 48‑person team and €300k budget for career fair hosting 1,000+ students and 90 companies, generated €150k profit, featured in Forbes interview.",
+      forum: "General Secretary – Forum Télécom Paris — Managed 48‑person team and €300k budget for career fair hosting 1,000+ students and 90 companies, generated €100k profit, featured in Forbes interview.",
       rugby: "Team Captain – Télécom Paris Rugby Team — Led team training and strategy, coordinated inter‑university tournament participation, fostered team cohesion and competitive performance."
     },
     buttons: { visitApp: "Visit App", viewOnGithub: "View on GitHub" },
@@ -132,7 +132,7 @@ const dict = {
     },
     leadership: {
       surf: "Président – Télécom Paris Surf Club — Organisation de surf trips sur la côte Atlantique (Lacanau, Biarritz), logistique et hébergement pour 40+ participants, coaching des débutants et développement du club.",
-      forum: "Secrétaire général – Forum Télécom Paris — Management d’une équipe de 48 personnes et d’un budget de 300k€ pour un salon accueillant 1 000+ étudiants et 90 entreprises ; 150k€ de bénéfice ; entretien Forbes.",
+      forum: "Secrétaire général – Forum Télécom Paris — Management d’une équipe de 48 personnes et d’un budget de 300k€ pour un salon accueillant 1 000+ étudiants et 90 entreprises ; 100k€ de bénéfice ; entretien Forbes.",
       rugby: "Capitaine – Équipe de rugby de Télécom Paris — Entraînement et stratégie, coordination des tournois inter‑universitaires, cohésion et performance d’équipe."
     },
     buttons: { visitApp: "Visiter le site", viewOnGithub: "Voir sur GitHub" },
@@ -199,7 +199,7 @@ const dict = {
     },
     leadership: {
       surf: "Präsident – Télécom Paris Surf Club — Organisation von Surf‑Trips an die Atlantikküste (Lacanau, Biarritz), Logistik und Unterkunft für 40+ Teilnehmer, Coaching für Anfänger und Clubwachstum.",
-      forum: "Generalsekretär – Forum Télécom Paris — Leitung eines 48‑köpfigen Teams und 300k€ Budgets für eine Karrieremesse mit 1.000+ Studierenden und 90 Unternehmen; 150k€ Gewinn; Forbes‑Interview.",
+      forum: "Generalsekretär – Forum Télécom Paris — Leitung eines 48‑köpfigen Teams und 300k€ Budgets für eine Karrieremesse mit 1.000+ Studierenden und 90 Unternehmen; 100k€ Gewinn; Forbes‑Interview.",
       rugby: "Teamkapitän – Rugby‑Team von Télécom Paris — Training und Strategie, Koordination interuniversitärer Turniere, Förderung von Teamzusammenhalt und Leistung."
     },
     buttons: { visitApp: "App besuchen", viewOnGithub: "Auf GitHub ansehen" },
@@ -266,7 +266,7 @@ const dict = {
     },
     leadership: {
       surf: "Presidente – Télécom Paris Surf Club — Organización de viajes de surf por la costa atlántica (Lacanau, Biarritz), logística y alojamiento para más de 40 participantes, entrenamiento a principiantes y crecimiento del club.",
-      forum: "Secretario General – Forum Télécom Paris — Dirección de un equipo de 48 personas y un presupuesto de 300k€ para una feria con 1.000+ estudiantes y 90 empresas; 150k€ de beneficio; entrevista en Forbes.",
+      forum: "Secretario General – Forum Télécom Paris — Dirección de un equipo de 48 personas y un presupuesto de 300k€ para una feria con 1.000+ estudiantes y 90 empresas; 100k€ de beneficio; entrevista en Forbes.",
       rugby: "Capitán del equipo – Rugby de Télécom Paris — Liderazgo en entrenamientos y estrategia, coordinación de torneos interuniversitarios, fomento de la cohesión y rendimiento del equipo."
     },
     buttons: { visitApp: "Visitar sitio", viewOnGithub: "Ver en GitHub" },
