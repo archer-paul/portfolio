@@ -47,14 +47,14 @@ const MultiAssetProject = ({ className = "" }: MultiAssetProjectProps) => {
       </header>
       
       <div className="mb-4">
-        <AspectRatio ratio={16 / 9}>
+        <div className="rounded-md overflow-hidden border">
           <img
             src="/images/trading-infrastructure-dashboard.png"
             alt="Multi-Asset Trading Infrastructure Dashboard"
-            className="h-full w-full rounded-md object-cover"
+            className="w-full h-auto rounded-md"
             loading="lazy"
           />
-        </AspectRatio>
+        </div>
       </div>
       
       <div className="flex items-center gap-3">
