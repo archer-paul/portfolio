@@ -14,7 +14,7 @@ const App = () => (
   <I18nProvider>
     <ThemeProvider
       attribute="class"
-      defaultTheme="system"
+      defaultTheme="dark"
       enableSystem
       disableTransitionOnChange
     >
