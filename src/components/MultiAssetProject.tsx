@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { useI18n } from "@/context/I18nContext";
 
 interface MultiAssetProjectProps {
@@ -11,22 +13,22 @@ const MultiAssetProject = ({ className = "" }: MultiAssetProjectProps) => {
   
   const projectData = {
     en: {
-      title: "Multi-Asset Trading Infrastructure",
+      title: "Multi-Asset Trading Framework",
       description: "Quantitative trading system combining ML ensemble (XGBoost, LSTM, Transformers) with real-time sentiment analysis (Bloomberg, Reuters, Reddit, Congressional trading). Sharpe 1.34, 13% annual returns, 6.8% max drawdown.",
       tech: "Python, PyTorch, XGBoost, LSTM, Transformers, PostgreSQL, Redis, Next.js, Flask-SocketIO"
     },
     fr: {
-      title: "Infrastructure de Trading Multi-Actifs",
+      title: "Framework de Trading Multi-Actifs",
       description: "Système de trading quantitatif combinant ensemble ML (XGBoost, LSTM, Transformers) et analyse de sentiment temps réel (Bloomberg, Reuters, Reddit, Congressional trading). Sharpe 1.34, rendements annuels 13%, drawdown max 6.8%.",
       tech: "Python, PyTorch, XGBoost, LSTM, Transformers, PostgreSQL, Redis, Next.js, Flask-SocketIO"
     },
     de: {
-      title: "Multi-Asset-Trading-Infrastruktur",
+      title: "Multi-Asset-Trading-Framework",
       description: "Quantitatives Trading-System mit ML-Ensemble (XGBoost, LSTM, Transformers) und Echtzeit-Sentiment-Analyse (Bloomberg, Reuters, Reddit, Congressional Trading). Sharpe 1.34, 13% Jahresrendite, 6.8% max. Drawdown.",
       tech: "Python, PyTorch, XGBoost, LSTM, Transformers, PostgreSQL, Redis, Next.js, Flask-SocketIO"
     },
     es: {
-      title: "Infraestructura de Trading Multi-Activos",
+      title: "Framework de Trading Multi-Activos",
       description: "Sistema de trading cuantitativo combinando ensemble ML (XGBoost, LSTM, Transformers) con análisis de sentimiento en tiempo real (Bloomberg, Reuters, Reddit, Congressional trading). Sharpe 1.34, 13% rendimientos anuales, 6.8% drawdown máximo.",
       tech: "Python, PyTorch, XGBoost, LSTM, Transformers, PostgreSQL, Redis, Next.js, Flask-SocketIO"
     }
@@ -75,6 +77,7 @@ const MultiAssetProject = ({ className = "" }: MultiAssetProjectProps) => {
             rel="noreferrer"
             aria-label="View Multi-Asset Trading on GitHub"
           >
+            <FontAwesomeIcon icon={faGithub} className="mr-2" />
             {t("buttons.viewOnGithub")}
           </a>
         </Button>

@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { useI18n } from "@/context/I18nContext";
 
 interface DerivativesProjectProps {
@@ -55,6 +57,7 @@ const DerivativesProject = ({ className = "" }: DerivativesProjectProps) => {
             rel="noreferrer"
             aria-label="View Derivatives Pricing Engine on GitHub"
           >
+            <FontAwesomeIcon icon={faGithub} className="mr-2" />
             {t("buttons.viewOnGithub")}
           </a>
         </Button>
