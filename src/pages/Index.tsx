@@ -1,7 +1,10 @@
 import Hero from "@/components/Hero";
 import FeaturedProject from "@/components/FeaturedProject";
+import MultiAssetProject from "@/components/MultiAssetProject";
+import DerivativesProject from "@/components/DerivativesProject";
 import ProjectCard from "@/components/ProjectCard";
 import SocialLinks from "@/components/SocialLinks";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { useI18n } from "@/context/I18nContext";
 import type { Lang } from "@/context/I18nContext";
 
@@ -71,15 +74,16 @@ const Index = () => {
       <header className="border-b bg-background/70 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-40">
         <div className="container h-14 flex items-center justify-between">
           <a href="#home" className="font-semibold story-link" aria-label="Aller au début">Paul Archer</a>
-          <div className="flex items-center gap-4">
-            <nav className="hidden md:flex items-center gap-6 text-sm text-muted-foreground">
-              <a href="#about" className="story-link">{t("nav.about")}</a>
-              <a href="#projects" className="story-link">{t("nav.projects")}</a>
-              <a href="#experience" className="story-link">{t("nav.experience")}</a>
-              <a href="#skills" className="story-link">{t("nav.skills")}</a>
-              <a href="#leadership" className="story-link">{t("nav.leadership")}</a>
-            </nav>
-            <div className="flex items-center gap-2" aria-label="Language selector">
+            <div className="flex items-center gap-4">
+              <ThemeToggle />
+              <nav className="hidden md:flex items-center gap-6 text-sm text-muted-foreground">
+                <a href="#about" className="story-link">{t("nav.about")}</a>
+                <a href="#projects" className="story-link">{t("nav.projects")}</a>
+                <a href="#experience" className="story-link">{t("nav.experience")}</a>
+                <a href="#skills" className="story-link">{t("nav.skills")}</a>
+                <a href="#leadership" className="story-link">{t("nav.leadership")}</a>
+              </nav>
+              <div className="flex items-center gap-2" aria-label="Language selector">
               {[
                 { code: "en", label: "English", flag: "/flags/gb.svg" },
                 { code: "fr", label: "Français", flag: "/flags/fr.svg" },
@@ -117,31 +121,37 @@ const Index = () => {
             <header className="mb-8">
               <h2 className="text-2xl font-semibold">{t("nav.projects")}</h2>
             </header>
+            
+            {/* Featured Project: Multi-Asset Trading Infrastructure */}
+            <MultiAssetProject />
+            
+            {/* Second Project: VibeMatch */}
             <FeaturedProject />
-              <div className="grid gap-6 md:grid-cols-2">
-                <ProjectCard
-                  title="Trading Bot"
-                  description={d.tradingBot}
-                  href="https://github.com/archer-paul/trading-bot"
-                />
-                <ProjectCard
-                  title="CareSync AI Triage"
-                  description={d.careSync}
-                  href="https://github.com/archer-paul/CareSync-AI-Triage"
-                  appUrl="https://medical-triage-ai.lovable.app/"
-                  videoId="AN8mFCh62HA"
-                />
-                <ProjectCard
-                  title="GEMCARE"
-                  description={d.gemcare}
-                  href="https://github.com/archer-paul/gemcare-smart-medical-record"
-                />
-                <ProjectCard
-                  title="Quantum Network Optimizer"
-                  description={d.quantum}
-                  href="https://github.com/archer-paul/quantum-network-optimizer"
-                />
-              </div>
+            
+            {/* Third row: Derivatives Pricing Engine + CareSync AI Triage */}
+            <div className="grid gap-6 md:grid-cols-2 mb-6">
+              <DerivativesProject />
+              <ProjectCard
+                title="CareSync AI Triage"
+                description={d.careSync}
+                href="https://github.com/archer-paul/CareSync-AI-Triage"
+                appUrl="https://medical-triage-ai.lovable.app/"
+                videoId="AN8mFCh62HA"
+              />
+            </div>
+              
+            <div className="grid gap-6 md:grid-cols-2">
+              <ProjectCard
+                title="GEMCARE"
+                description={d.gemcare}
+                href="https://github.com/archer-paul/gemcare-smart-medical-record"
+              />
+              <ProjectCard
+                title="Quantum Network Optimizer"
+                description={d.quantum}
+                href="https://github.com/archer-paul/quantum-network-optimizer"
+              />
+            </div>
           </div>
         </section>
 

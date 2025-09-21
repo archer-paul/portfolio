@@ -1,76 +1,73 @@
-# Paul Archer - Professional Portfolio
+# Welcome to your Lovable project
 
-Modern personal portfolio showcasing quantitative finance and AI projects, professional experience, and technical expertise.
+## Project info
 
-## Overview
+**URL**: https://lovable.dev/projects/61cab683-fc9d-4329-8596-590586be3faa
 
-Personal website built with React, TypeScript, and Tailwind CSS, featuring:
+## How can I edit this code?
 
-- Quantitative finance and AI projects
-- Professional and academic experience
-- Technical skills and competencies
-- Downloadable resume
-- Modern design with smooth animations
+There are several ways of editing your application.
 
-## Tech Stack
+**Use Lovable**
 
-- **Frontend**: React 18, TypeScript
-- **Styling**: Tailwind CSS, Shadcn/ui
-- **Build Tool**: Vite
-- **Deployment**: Vercel
+Simply visit the [Lovable Project](https://lovable.dev/projects/61cab683-fc9d-4329-8596-590586be3faa) and start prompting.
 
-## Installation
+Changes made via Lovable will be committed automatically to this repo.
 
-```bash
-git clone https://github.com/username/repo-name.git
-cd repo-name
+**Use your preferred IDE**
 
-npm install
+If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+
+The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+
+Follow these steps:
+
+```sh
+# Step 1: Clone the repository using the project's Git URL.
+git clone <YOUR_GIT_URL>
+
+# Step 2: Navigate to the project directory.
+cd <YOUR_PROJECT_NAME>
+
+# Step 3: Install the necessary dependencies.
+npm i
+
+# Step 4: Start the development server with auto-reloading and an instant preview.
 npm run dev
 ```
 
-## Project Structure
+**Edit a file directly in GitHub**
 
-```
-src/
-├── components/
-│   ├── ui/             # Reusable UI components (Shadcn)
-│   ├── Hero.tsx        # Main hero section
-│   ├── ProjectCard.tsx # Project display cards
-│   └── ...
-├── pages/              # Application pages
-├── hooks/              # Custom React hooks
-└── lib/                # Utilities and configuration
-```
+- Navigate to the desired file(s).
+- Click the "Edit" button (pencil icon) at the top right of the file view.
+- Make your changes and commit the changes.
 
-## Features
+**Use GitHub Codespaces**
 
-- Responsive design optimized for all devices
-- Performance-focused with fast loading times
-- SEO-optimized with complete metadata
-- Accessibility compliant (WCAG standards)
-- Smooth animations and interactions
+- Navigate to the main page of your repository.
+- Click on the "Code" button (green button) near the top right.
+- Select the "Codespaces" tab.
+- Click on "New codespace" to launch a new Codespace environment.
+- Edit files directly within the Codespace and commit and push your changes once you're done.
 
-## Deployment
+## What technologies are used for this project?
 
-Automatically deployed to Vercel on every push to `main` branch.
+This project is built with:
 
-**Production URL**: [paularcher.dev](https://paularcher.dev)
+- Vite
+- TypeScript
+- React
+- shadcn-ui
+- Tailwind CSS
 
-## Available Scripts
+## How can I deploy this project?
 
-```bash
-npm run dev          # Development server
-npm run build        # Production build
-npm run preview      # Preview production build
-npm run lint         # ESLint verification
-```
+Simply open [Lovable](https://lovable.dev/projects/61cab683-fc9d-4329-8596-590586be3faa) and click on Share -> Publish.
 
-## Contact
+## Can I connect a custom domain to my Lovable project?
 
-- **LinkedIn**: [Paul Archer](https://linkedin.com/in/paul-archer)
-- **GitHub**: [@archer-paul](https://github.com/archer-paul)
+Yes, you can!
 
-## License
+To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
-This project is licensed under the MIT License.
+Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)

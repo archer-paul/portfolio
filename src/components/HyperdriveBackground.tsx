@@ -31,6 +31,9 @@ const HyperdriveBackground: React.FC<HyperdriveBackgroundProps> = ({ className }
       return `hsla(${v} / ${alpha})`;
     };
 
+    // Check if we're in dark mode
+    const isDarkMode = document.documentElement.classList.contains('dark');
+
     type Ray = { angle: number; radius: number; speed: number; length: number; width: number };
     let rays: Ray[] = [];
 
@@ -67,8 +70,19 @@ const HyperdriveBackground: React.FC<HyperdriveBackgroundProps> = ({ className }
       const cx = width / 2;
       const cy = height / 2;
 
-      const stroke = getHsl("--accent", 0.16);
-      const glow = getHsl("--accent", 0.04);
+      // Enhanced visibility - different intensities for light/dark mode
+      const isDarkMode = document.documentElement.classList.contains('dark');
+      
+      let stroke, glow;
+      if (isDarkMode) {
+        // Dark mode: white/light colors
+        stroke = "rgba(255, 255, 255, 0.6)";
+        glow = "rgba(255, 255, 255, 0.15)";
+      } else {
+        // Light mode: more visible accent colors
+        stroke = getHsl("--accent", 0.4);
+        glow = getHsl("--accent", 0.12);
+      }
 
       for (const r of rays) {
         const x1 = cx + Math.cos(r.angle) * r.radius;

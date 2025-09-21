@@ -12,10 +12,11 @@ interface ProjectCardProps {
   href: string;
   videoId?: string;
   appUrl?: string;
+  autoPlay?: boolean;
 }
 
-const ProjectCard = ({ title, description, href, videoId, appUrl }: ProjectCardProps) => {
-  const [play, setPlay] = useState(false);
+const ProjectCard = ({ title, description, href, videoId, appUrl, autoPlay = false }: ProjectCardProps) => {
+  const [play, setPlay] = useState(autoPlay);
   const { t } = useI18n();
   return (
     <article className="group rounded-lg border bg-card p-6 transition-colors hover:border-accent/40 hover:shadow-md">

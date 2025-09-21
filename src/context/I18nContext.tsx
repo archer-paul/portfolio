@@ -7,13 +7,23 @@ const dict = {
   en: {
     nav: { about: "About", projects: "Projects", experience: "Experience", skills: "Skills", leadership: "Leadership" },
     hero: {
-      title: "Paul Archer — Quantitative Finance Portfolio & CV",
+      title: "Paul Archer — Portfolio & CV",
       tagline: "MSc Mathematics & Finance @ Imperial College London | Co‑Founder @ VibeMatch",
       quote: "Quantitative finance, AI, and advanced mathematical modeling",
       viewResume: "View Resume",
       resumeTitle: "Resume — Paul Archer",
       openInNewTab: "Open in new tab",
       downloadPdf: "Download PDF"
+    },
+    projects: {
+      multiAsset: {
+        title: "Multi-Asset Trading Infrastructure",
+        description: "Quantitative trading system combining ML ensemble (XGBoost, LSTM, Transformers) with real-time sentiment analysis (Bloomberg, Reuters, Reddit, Congressional trading). Sharpe 1.34, 13% annual returns, 6.8% max drawdown."
+      },
+      derivatives: {
+        title: "Derivatives Pricing Engine",
+        description: "High-performance pricing library implementing Black-Scholes, Heston stochastic volatility, and Merton jump-diffusion models. Sub-millisecond Greeks calculation with automatic differentiation, Monte Carlo simulation with variance reduction."
+      }
     },
     sections: {
       about: { title: "About Me", body: "I am a quantitative finance and AI enthusiast with a strong background in stochastic modeling, machine learning, and algorithmic trading. Currently pursuing my MSc in Mathematics and Finance at Imperial College London, I combine technical expertise with entrepreneurial drive as Co‑Founder of VibeMatch." },
@@ -64,13 +74,23 @@ const dict = {
   fr: {
     nav: { about: "À propos", projects: "Projets", experience: "Expérience", skills: "Compétences", leadership: "Leadership" },
     hero: {
-      title: "Paul Archer — Portfolio & CV en finance quantitative",
+      title: "Paul Archer — Portfolio & CV",
       tagline: "MSc Mathematics & Finance @ Imperial College London | Co‑fondateur @ VibeMatch",
       quote: "Finance quantitative, IA et modélisation mathématique avancée",
       viewResume: "Voir le CV",
       resumeTitle: "CV — Paul Archer",
       openInNewTab: "Ouvrir dans un nouvel onglet",
       downloadPdf: "Télécharger le PDF"
+    },
+    projects: {
+      multiAsset: {
+        title: "Infrastructure de Trading Multi-Actifs",
+        description: "Système de trading quantitatif combinant ensemble ML (XGBoost, LSTM, Transformers) et analyse de sentiment temps réel (Bloomberg, Reuters, Reddit, Congressional trading). Sharpe 1.34, rendements annuels 13%, drawdown max 6.8%."
+      },
+      derivatives: {
+        title: "Moteur de Pricing de Dérivés",
+        description: "Bibliothèque haute performance implémentant Black-Scholes, Heston et Merton jump-diffusion. Calcul des Grecs avec différentiation automatique en sub-milliseconde, simulation Monte Carlo avec réduction de variance."
+      }
     },
     sections: {
       about: { title: "À propos de moi", body: "Passionné par la finance quantitative et l’IA, avec une solide expérience en modélisation stochastique, apprentissage automatique et trading algorithmique. Actuellement en MSc Mathematics & Finance à Imperial College London, j’allie expertise technique et esprit entrepreneurial en tant que co‑fondateur de VibeMatch." },
@@ -121,13 +141,23 @@ const dict = {
   de: {
     nav: { about: "Über mich", projects: "Projekte", experience: "Erfahrung", skills: "Fähigkeiten", leadership: "Leadership" },
     hero: {
-      title: "Paul Archer — Portfolio & Lebenslauf Quantitative Finance",
+      title: "Paul Archer — Portfolio & CV",
       tagline: "MSc Mathematics & Finance @ Imperial College London | Mitgründer @ VibeMatch",
       quote: "Quantitative Finance, KI und fortgeschrittene mathematische Modellierung",
       viewResume: "Lebenslauf ansehen",
       resumeTitle: "Lebenslauf — Paul Archer",
       openInNewTab: "In neuem Tab öffnen",
       downloadPdf: "PDF herunterladen"
+    },
+    projects: {
+      multiAsset: {
+        title: "Multi-Asset-Trading-Infrastruktur",
+        description: "Quantitatives Trading-System mit ML-Ensemble (XGBoost, LSTM, Transformers) und Echtzeit-Sentiment-Analyse (Bloomberg, Reuters, Reddit, Congressional Trading). Sharpe 1.34, 13% Jahresrendite, 6.8% max. Drawdown."
+      },
+      derivatives: {
+        title: "Derivate-Pricing-Engine",
+        description: "Hochleistungs-Pricing-Bibliothek mit Black-Scholes, Heston stochastischer Volatilität und Merton Jump-Diffusion-Modellen. Sub-Millisekunden Greeks-Berechnung mit automatischer Differentiation, Monte-Carlo-Simulation mit Varianzreduktion."
+      }
     },
     sections: {
       about: { title: "Über mich", body: "Ich bin begeistert von Quantitative Finance und KI, mit starkem Hintergrund in stochastischer Modellierung, Machine Learning und algorithmischem Trading. Derzeit im MSc Mathematics & Finance am Imperial College London verbinde ich technisches Know‑how mit Unternehmergeist als Mitgründer von VibeMatch." },
@@ -178,13 +208,23 @@ const dict = {
   es: {
     nav: { about: "Acerca de", projects: "Proyectos", experience: "Experiencia", skills: "Habilidades", leadership: "Liderazgo" },
     hero: {
-      title: "Paul Archer — Portafolio y CV de Finanzas Cuantitativas",
+      title: "Paul Archer — Portfolio & CV",
       tagline: "MSc Mathematics & Finance @ Imperial College London | Cofundador @ VibeMatch",
       quote: "Finanzas cuantitativas, IA y modelización matemática avanzada",
       viewResume: "Ver CV",
       resumeTitle: "CV — Paul Archer",
       openInNewTab: "Abrir en nueva pestaña",
       downloadPdf: "Descargar PDF"
+    },
+    projects: {
+      multiAsset: {
+        title: "Infraestructura de Trading Multi-Activos",
+        description: "Sistema de trading cuantitativo combinando ensemble ML (XGBoost, LSTM, Transformers) con análisis de sentimiento en tiempo real (Bloomberg, Reuters, Reddit, Congressional trading). Sharpe 1.34, 13% rendimientos anuales, 6.8% drawdown máximo."
+      },
+      derivatives: {
+        title: "Motor de Pricing de Derivados",
+        description: "Biblioteca de alto rendimiento implementando Black-Scholes, volatilidad estocástica Heston y modelos Merton jump-diffusion. Cálculo de Griegas sub-milisegundo con diferenciación automática, simulación Monte Carlo con reducción de varianza."
+      }
     },
     sections: {
       about: { title: "Acerca de mí", body: "Entusiasta de las finanzas cuantitativas y la IA con sólida base en modelización estocástica, aprendizaje automático y trading algorítmico. Actualmente cursando el MSc en Mathematics & Finance en Imperial College London, combino la experiencia técnica con emprendimiento como cofundador de VibeMatch." },
