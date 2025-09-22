@@ -59,12 +59,6 @@ const ProjectCard = ({ title, description, href, videoId, appUrl, autoPlay = fal
       <h3 className="text-xl font-semibold mb-2">{title}</h3>
       <p className="text-muted-foreground mb-4">{description}</p>
       <div className="flex items-center gap-3">
-        <Button asChild variant="outline" size="sm" className="hover-scale">
-          <a href={href} target="_blank" rel="noreferrer" aria-label={`${title} – GitHub`}>
-            <FontAwesomeIcon icon={faGithub} />
-            <span>{t("buttons.viewOnGithub")}</span>
-          </a>
-        </Button>
         {appUrl && (
           <Button asChild variant="accent" size="sm" className="hover-scale">
             <a href={appUrl} target="_blank" rel="noreferrer" aria-label={`${title} – Visit App`}>
@@ -72,6 +66,12 @@ const ProjectCard = ({ title, description, href, videoId, appUrl, autoPlay = fal
             </a>
           </Button>
         )}
+        <Button asChild variant="outline" size="sm" className="hover-scale">
+          <a href={href} target="_blank" rel="noreferrer" aria-label={`${title} – GitHub`}>
+            <FontAwesomeIcon icon={faGithub} />
+            <span>{t("buttons.viewOnGithub")}</span>
+          </a>
+        </Button>
       </div>
     </article>
   );
