@@ -50,14 +50,14 @@ const HyperdriveBackground: React.FC<HyperdriveBackgroundProps> = ({ className }
 
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-      const baseCount = Math.max(24, Math.min(80, Math.floor((width * height) / 40000)));
+      const baseCount = Math.max(80, Math.min(200, Math.floor((width * height) / 15000)));
       const count = reducedMotion ? 0 : baseCount;
 
       rays = new Array(count).fill(0).map(() => ({
         angle: Math.random() * Math.PI * 2,
         radius: Math.random() * 20 + 10,
-        speed: Math.random() * 0.6 + 0.25,
-        length: Math.random() * 60 + 40,
+        speed: Math.random() * 2.0 + 1.0,
+        length: Math.random() * 120 + 60,
         width: Math.random() * 1.4 + 0.6,
       }));
     };
@@ -76,12 +76,12 @@ const HyperdriveBackground: React.FC<HyperdriveBackgroundProps> = ({ className }
       let stroke, glow;
       if (isDarkMode) {
         // Dark mode: white/light colors
-        stroke = "rgba(255, 255, 255, 0.6)";
-        glow = "rgba(255, 255, 255, 0.15)";
+        stroke = "rgba(255, 255, 255, 0.7)";
+        glow = "rgba(255, 255, 255, 0.25)";
       } else {
         // Light mode: more visible accent colors
-        stroke = getHsl("--accent", 0.4);
-        glow = getHsl("--accent", 0.12);
+        stroke = getHsl("--accent", 0.6);
+        glow = getHsl("--accent", 0.25);
       }
 
       for (const r of rays) {
@@ -92,7 +92,7 @@ const HyperdriveBackground: React.FC<HyperdriveBackgroundProps> = ({ className }
 
         // outer glow
         ctx.strokeStyle = glow;
-        ctx.lineWidth = r.width * 2;
+        ctx.lineWidth = r.width * 2.5;
         ctx.beginPath();
         ctx.moveTo(x1, y1);
         ctx.lineTo(x2, y2);
@@ -107,12 +107,12 @@ const HyperdriveBackground: React.FC<HyperdriveBackgroundProps> = ({ className }
         ctx.stroke();
 
         r.radius += r.speed;
-        const maxRadius = Math.hypot(cx, cy) + 100;
+        const maxRadius = Math.hypot(cx, cy) + 200;
         if (r.radius > maxRadius) {
           r.radius = Math.random() * 20 + 10;
           r.angle = Math.random() * Math.PI * 2;
-          r.speed = Math.random() * 0.6 + 0.25;
-          r.length = Math.random() * 60 + 40;
+          r.speed = Math.random() * 2.0 + 1.0;
+          r.length = Math.random() * 120 + 60;
           r.width = Math.random() * 1.4 + 0.6;
         }
       }

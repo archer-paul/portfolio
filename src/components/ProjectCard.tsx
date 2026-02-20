@@ -19,7 +19,7 @@ const ProjectCard = ({ title, description, href, videoId, appUrl, autoPlay = fal
   const [play, setPlay] = useState(autoPlay);
   const { t } = useI18n();
   return (
-    <article className="group rounded-lg border bg-card p-6 transition-colors hover:border-accent/40 hover:shadow-md">
+    <article className="group rounded-xl border bg-card/50 backdrop-blur-sm p-6 hover-lift hover:border-accent/50 hover:shadow-2xl transition-all duration-300">
       {videoId && (
         <div className="mb-4">
           <AspectRatio ratio={16 / 9}>

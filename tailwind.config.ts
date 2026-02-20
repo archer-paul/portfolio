@@ -114,7 +114,8 @@ export default {
         'scale-out': 'scale-out 0.25s ease-out both',
         'slide-in-right': 'slide-in-right 0.35s ease-out both',
         'slide-out-right': 'slide-out-right 0.35s ease-out both',
-        'enter': 'fade-in 0.35s ease-out, scale-in 0.25s ease-out'
+        'enter': 'fade-in 0.35s ease-out, scale-in 0.25s ease-out',
+        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       }
     }
   },
