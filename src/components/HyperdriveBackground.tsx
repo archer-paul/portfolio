@@ -34,7 +34,7 @@ const HyperdriveBackground: React.FC<HyperdriveBackgroundProps> = ({ className }
     // Check if we're in dark mode
     const isDarkMode = document.documentElement.classList.contains('dark');
 
-    type Ray = { angle: number; radius: number; speed: number; length: number; width: number };
+    type Ray = { angle: number; radius: number; speed: number; length: number; width: number; isAccent: boolean };
     let rays: Ray[] = [];
 
     const setup = () => {
@@ -50,49 +50,53 @@ const HyperdriveBackground: React.FC<HyperdriveBackgroundProps> = ({ className }
 
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-      const baseCount = Math.max(80, Math.min(200, Math.floor((width * height) / 15000)));
+      const baseCount = Math.max(80, Math.min(180, Math.floor((width * height) / 18000)));
       const count = reducedMotion ? 0 : baseCount;
+
+      const maxRadius = Math.hypot(width / 2, height / 2) + 100;
+      const minStartRadius = 30; // Central void size
 
       rays = new Array(count).fill(0).map(() => ({
         angle: Math.random() * Math.PI * 2,
-        radius: Math.random() * 20 + 10,
-        speed: Math.random() * 2.0 + 1.0,
+        radius: Math.random() * (maxRadius - minStartRadius) + minStartRadius,
+        speed: Math.random() * 2.5 + 1.2,
         length: Math.random() * 120 + 60,
-        width: Math.random() * 1.4 + 0.6,
+        width: Math.random() * 1.4 + 0.5,
+        isAccent: Math.random() > 0.7, // 30% are gold/accent
       }));
     };
 
     const draw = () => {
-      // subtle fade trail
-      ctx.fillStyle = "rgba(0,0,0,0)";
       ctx.clearRect(0, 0, width, height);
 
       const cx = width / 2;
       const cy = height / 2;
-
-      // Enhanced visibility - different intensities for light/dark mode
       const isDarkMode = document.documentElement.classList.contains('dark');
       
-      let stroke, glow;
-      if (isDarkMode) {
-        // Dark mode: white/light colors
-        stroke = "rgba(255, 255, 255, 0.7)";
-        glow = "rgba(255, 255, 255, 0.25)";
-      } else {
-        // Light mode: more visible accent colors
-        stroke = getHsl("--accent", 0.6);
-        glow = getHsl("--accent", 0.25);
-      }
-
       for (const r of rays) {
         const x1 = cx + Math.cos(r.angle) * r.radius;
         const y1 = cy + Math.sin(r.angle) * r.radius;
         const x2 = cx + Math.cos(r.angle) * (r.radius + r.length);
         const y2 = cy + Math.sin(r.angle) * (r.radius + r.length);
 
+        let stroke, glow;
+        if (r.isAccent) {
+          // Gold/Accent rays - lower opacity for comfort
+          stroke = getHsl("--accent", 0.4);
+          glow = getHsl("--accent", 0.15);
+        } else if (isDarkMode) {
+          // Subtle white rays in dark mode
+          stroke = "rgba(255, 255, 255, 0.35)";
+          glow = "rgba(255, 255, 255, 0.1)";
+        } else {
+          // Subtle accent/primary rays in light mode
+          stroke = getHsl("--primary", 0.2);
+          glow = getHsl("--primary", 0.08);
+        }
+
         // outer glow
         ctx.strokeStyle = glow;
-        ctx.lineWidth = r.width * 2.5;
+        ctx.lineWidth = r.width * 3;
         ctx.beginPath();
         ctx.moveTo(x1, y1);
         ctx.lineTo(x2, y2);
@@ -109,11 +113,11 @@ const HyperdriveBackground: React.FC<HyperdriveBackgroundProps> = ({ className }
         r.radius += r.speed;
         const maxRadius = Math.hypot(cx, cy) + 200;
         if (r.radius > maxRadius) {
-          r.radius = Math.random() * 20 + 10;
+          r.radius = 30; // Restart from outside the central void
           r.angle = Math.random() * Math.PI * 2;
-          r.speed = Math.random() * 2.0 + 1.0;
+          r.speed = Math.random() * 2.5 + 1.2;
           r.length = Math.random() * 120 + 60;
-          r.width = Math.random() * 1.4 + 0.6;
+          r.isAccent = Math.random() > 0.7;
         }
       }
 

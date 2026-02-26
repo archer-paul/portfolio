@@ -112,13 +112,4 @@
   .hover-scale {
     @apply transition-all duration-300 hover:scale-105 hover:shadow-lg;
   }
-  .hover-lift {
-    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-xl;
-  }
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary;
-  }
-  .glass {
-    @apply bg-background/60 backdrop-blur-md border border-white/10;
-  }
 }

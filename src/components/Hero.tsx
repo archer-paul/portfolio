@@ -13,25 +13,25 @@ const Hero = () => {
       <div className="container relative py-20 md:py-28">
         <div className="relative z-10 mx-auto max-w-3xl text-center animate-enter">
           <div className="mb-6 flex justify-center">
-            <Avatar className="h-32 w-32 ring-2 ring-accent/50 shadow-2xl animate-pulse-slow">
+            <Avatar className="h-28 w-28 ring-1 ring-accent/30 shadow-sm">
               <AvatarImage src="/paul-archer.jpg" alt="Portrait of Paul Archer - quantitative finance" />
               <AvatarFallback>PA</AvatarFallback>
             </Avatar>
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-4 text-gradient">
+          <h1 className="text-4xl md:text-5xl font-semibold tracking-tight mb-4">
             {t("hero.title")}
           </h1>
-          <p className="text-lg md:text-2xl text-foreground font-medium mb-4">
+          <p className="text-lg md:text-xl text-muted-foreground mb-8">
             {t("hero.tagline")}
           </p>
-          <p className="text-base md:text-lg text-muted-foreground mb-8 max-w-2xl mx-auto italic">
-            "{t("hero.quote")}"
+          <p className="text-base md:text-lg text-muted-foreground mb-8">
+            {t("hero.quote")}
           </p>
           <div className="flex items-center justify-center gap-4">
             <Dialog>
               <DialogTrigger asChild>
-                <Button variant="hero" size="xl" className="hover-lift bg-primary text-primary-foreground px-8 py-6 text-lg" aria-label={t("hero.viewResume")}>
-                  <FontAwesomeIcon icon={faFileArrowDown} className="mr-2" />
+                <Button variant="hero" size="lg" className="hover-scale" aria-label={t("hero.viewResume")}>
+                  <FontAwesomeIcon icon={faFileArrowDown} />
                   <span>{t("hero.viewResume")}</span>
                 </Button>
               </DialogTrigger>
