@@ -2,14 +2,14 @@ import React, { createContext, useContext, useEffect, useMemo, useState } from "
 
 export type Lang = "en" | "fr" | "de" | "es";
 
-// Minimal key-based translations
+// Minimal key-based translations synchronized with LaTeX CV
 const dict = {
   en: {
     nav: { about: "About", projects: "Projects", experience: "Experience", skills: "Skills", leadership: "Leadership" },
     hero: {
-      title: "Paul Archer — Portfolio & CV",
-      tagline: "MSc Mathematics & Finance @ Imperial College London | Co‑Founder @ VibeMatch",
-      quote: "Quantitative finance, AI, and advanced mathematical modeling",
+      title: "Paul Archer",
+      tagline: "MSc Mathematics & Finance @ Imperial College London | Incoming Quant Intern @ BAM",
+      quote: "Quantitative Research, Machine Learning & Quantum Computing",
       viewResume: "View Resume",
       resumeTitle: "Resume — Paul Archer",
       openInNewTab: "Open in new tab",
@@ -17,56 +17,59 @@ const dict = {
     },
     projects: {
       multiAsset: {
-        title: "Multi-Asset Trading Infrastructure",
-        description: "Quantitative trading system combining ML ensemble (XGBoost, LSTM, Transformers) with real-time sentiment analysis (Bloomberg, Reuters, Reddit, Congressional trading). Sharpe 1.34, 13% annual returns, 6.8% max drawdown."
+        title: "Multi-Strategy Alpha Engine",
+        description: "Systematic equity strategy using Bayesian Model Averaging (Transformer/LSTM/XGBoost) and NLP/NER pipeline on Bloomberg/Reddit data. Sharpe 1.42."
       },
-      derivatives: {
-        title: "Derivatives Pricing Engine",
-        description: "High-performance pricing library implementing Black-Scholes, Heston stochastic volatility, and Merton jump-diffusion models. Sub-millisecond Greeks calculation with automatic differentiation, Monte Carlo simulation with variance reduction."
+      jpmorgan: {
+        title: "JP Morgan Data for Good (1st Place)",
+        description: "Geospatial analytics platform for UK school expansion. Applied K-means/DBSCAN clustering on government deprivation data."
       }
     },
     sections: {
-      about: { title: "About Me", body: "I am a quantitative finance and AI enthusiast with a strong background in stochastic modeling, machine learning, and algorithmic trading. Currently pursuing my MSc in Mathematics and Finance at Imperial College London, I combine technical expertise with entrepreneurial drive as Co‑Founder of VibeMatch." },
+      about: { 
+        title: "About Me", 
+        body: "I am an incoming Quantitative Research Intern at Balyasny Asset Management (Summer 2026) within a L/S Equity pod (Aerospace & Defense). Currently pursuing an MSc in Mathematics and Finance at Imperial College London and an Engineering degree at Télécom Paris, I am passionate about Machine Learning, Finance, and Quantum Computing. I also co-founded vibematch.tech, an AI platform connecting creators with sponsors." 
+      },
       projects: { title: "Projects" },
       experience: { title: "Experience" },
       skills: {
         title: "Skills",
-        finance: "Finance",
+        finance: "Quantitative Methods & Risk",
         programming: "Programming",
         languages: "Languages",
         items: {
           finance: {
-            derivativesPricing: "Derivatives Pricing",
-            portfolioOptimization: "Portfolio Optimization",
-            riskManagement: "Risk Management",
-            algorithmicTrading: "Algorithmic Trading",
-            monteCarlo: "Monte Carlo Simulation"
+            derivativesPricing: "Monte Carlo, Time Series (ARIMA, GARCH, VAR)",
+            portfolioOptimization: "PCA, Cointegration, Kalman Filtering",
+            riskManagement: "VaR, Expected Shortfall, Greeks",
+            algorithmicTrading: "Black-Scholes, Heston, Hull-White",
+            monteCarlo: "Cox Proportional Hazards"
           },
           programming: {
-            python: "Python (Pandas, Scikit-Learn, PyTorch, QuantLib)",
-            cpp_r_matlab_sql_vba: "C++, R, MATLAB, SQL, VBA"
+            python: "Python (NumPy, Pandas, Scikit-Learn, PyTorch, QuantLib)",
+            cpp_r_matlab_sql_vba: "C++, R, SQL, Java, Excel VBA"
           },
           languages: {
             french: "French (Native)",
             english: "English (C2)",
             german: "German (B2)",
-            spanish: "Spanish (A2)",
-            danish: "Danish (A1)"
+            spanish: "Spanish (Conversational)",
+            danish: "Danish (Basics)"
           }
         }
       },
       leadership: { title: "Leadership & Activities" }
     },
     experience: {
-      vibematch: "VibeMatch (Co‑Founder) — Built AI‑powered creator‑sponsor matching platform with social media data integration (YouTube, Instagram APIs) and Cerebras inference engine; led early outreach to marketing agencies.",
-      mondor: "Henri Mondor Hospital (Data Science Internship) — Developed time series forecasting models, built NLP pipeline, created funding analysis tool.",
-      sopra: "Sopra Steria (Quantum Computing Internship) — Implemented cold atom quantum optimization algorithms for telecom network infrastructure.",
-      farm: "Hedge's Farm (Seasonal Worker in Sligo, Ireland) — Livestock management and daily animal husbandry tasks, crop harvesting, and maintenance work."
+      balyasny: "Balyasny Asset Management — Incoming Quantitative Research Intern (Summer 2026, London)",
+      mondor: "Henri Mondor Hospital — Data Science Research Intern (Summer 2025, France)",
+      vibematch: "VibeMatch (AI Startup) — Co-Founder & CEO (2024-2025)",
+      sopra: "Sopra Steria — Quantum Computing Intern (Summer 2024, France)"
     },
     leadership: {
-      surf: "President – Télécom Paris Surf Club — Organized Atlantic coast surf trips (Lacanau, Biarritz), managed logistics and accommodation for 40+ participants, coached beginners and grew club membership.",
-      forum: "General Secretary – Forum Télécom Paris — Managed 48‑person team and €300k budget for career fair hosting 1,000+ students and 90 companies, generated €100k profit, featured in Forbes interview.",
-      rugby: "Team Captain – Télécom Paris Rugby Team — Led team training and strategy, coordinated inter‑university tournament participation, fostered team cohesion and competitive performance."
+      surf: "President – Télécom Paris Surf Club — Organized Atlantic coast surf trips (Lacanau, Biarritz), managed logistics and accommodation for 40+ participants.",
+      forum: "General Secretary – Forum Télécom Paris — Managed €300K budget and 48-member team for career fair; featured in Forbes Interview.",
+      rugby: "Team Captain – Télécom Paris Rugby Team — Led team training, strategy, and coordinated inter-university tournaments."
     },
     buttons: { visitApp: "Visit App", viewOnGithub: "View on GitHub" },
     footer: { copyright: "© Paul Archer 2025" }
@@ -74,9 +77,9 @@ const dict = {
   fr: {
     nav: { about: "À propos", projects: "Projets", experience: "Expérience", skills: "Compétences", leadership: "Leadership" },
     hero: {
-      title: "Paul Archer — Portfolio & CV",
-      tagline: "MSc Mathematics & Finance @ Imperial College London | Co‑fondateur @ VibeMatch",
-      quote: "Finance quantitative, IA et modélisation mathématique avancée",
+      title: "Paul Archer",
+      tagline: "MSc Mathematics & Finance @ Imperial College London | Futur Stagiaire Quant @ BAM",
+      quote: "Recherche Quantitative, Machine Learning & Calcul Quantique",
       viewResume: "Voir le CV",
       resumeTitle: "CV — Paul Archer",
       openInNewTab: "Ouvrir dans un nouvel onglet",
@@ -84,66 +87,69 @@ const dict = {
     },
     projects: {
       multiAsset: {
-        title: "Infrastructure de Trading Multi-Actifs",
-        description: "Système de trading quantitatif combinant ensemble ML (XGBoost, LSTM, Transformers) et analyse de sentiment temps réel (Bloomberg, Reuters, Reddit, Congressional trading). Sharpe 1.34, rendements annuels 13%, drawdown max 6.8%."
+        title: "Multi-Strategy Alpha Engine",
+        description: "Stratégie actions systématique via Bayesian Model Averaging (Transformer/LSTM/XGBoost) et pipeline NLP sur Bloomberg/Reddit. Sharpe 1.42."
       },
-      derivatives: {
-        title: "Moteur de Pricing de Dérivés",
-        description: "Bibliothèque haute performance implémentant Black-Scholes, Heston et Merton jump-diffusion. Calcul des Grecs avec différentiation automatique en sub-milliseconde, simulation Monte Carlo avec réduction de variance."
+      jpmorgan: {
+        title: "JP Morgan Data for Good (1er Prix)",
+        description: "Plateforme d'analyse géospatiale pour l'expansion scolaire au Royaume-Uni via clustering K-means/DBSCAN."
       }
     },
     sections: {
-      about: { title: "À propos de moi", body: "Passionné par la finance quantitative et l’IA, avec une solide expérience en modélisation stochastique, apprentissage automatique et trading algorithmique. Actuellement en MSc Mathematics & Finance à Imperial College London, j’allie expertise technique et esprit entrepreneurial en tant que co‑fondateur de VibeMatch." },
+      about: { 
+        title: "À propos", 
+        body: "Je rejoindrai Balyasny Asset Management en tant que stagiaire en Recherche Quantitative (Été 2026) au sein d'un pod L/S Equity (Aerospace & Defense). Actuellement en MSc Mathematics and Finance à Imperial College London et élève-ingénieur à Télécom Paris, je suis passionné par le Machine Learning, la Finance et le Calcul Quantique. J'ai également co-fondé vibematch.tech, une plateforme IA reliant créateurs et sponsors." 
+      },
       projects: { title: "Projets" },
       experience: { title: "Expérience" },
       skills: {
         title: "Compétences",
-        finance: "Finance",
+        finance: "Méthodes Quantitatives & Risque",
         programming: "Programmation",
         languages: "Langues",
         items: {
           finance: {
-            derivativesPricing: "Valorisation des produits dérivés",
-            portfolioOptimization: "Optimisation de portefeuille",
-            riskManagement: "Gestion des risques",
-            algorithmicTrading: "Trading algorithmique",
-            monteCarlo: "Simulation de Monte Carlo"
+            derivativesPricing: "Monte Carlo, Séries Temporelles (ARIMA, GARCH, VAR)",
+            portfolioOptimization: "PCA, Cointégration, Filtre de Kalman",
+            riskManagement: "VaR, Expected Shortfall, Grecs",
+            algorithmicTrading: "Black-Scholes, Heston, Hull-White",
+            monteCarlo: "Cox Proportional Hazards"
           },
           programming: {
-            python: "Python (Pandas, Scikit‑Learn, PyTorch, QuantLib)",
-            cpp_r_matlab_sql_vba: "C++, R, MATLAB, SQL, VBA"
+            python: "Python (NumPy, Pandas, Scikit-Learn, PyTorch, QuantLib)",
+            cpp_r_matlab_sql_vba: "C++, R, SQL, Java, Excel VBA"
           },
           languages: {
-            french: "Français (natif)",
+            french: "Français (Natif)",
             english: "Anglais (C2)",
             german: "Allemand (B2)",
-            spanish: "Espagnol (A2)",
-            danish: "Danois (A1)"
+            spanish: "Espagnol (Courant)",
+            danish: "Danois (Bases)"
           }
         }
       },
       leadership: { title: "Leadership & Activités" }
     },
     experience: {
-      vibematch: "VibeMatch (Co‑fondateur) — Plateforme de mise en relation créateurs‑sponsors dopée à l’IA, intégrant les données sociales (APIs YouTube, Instagram) et un moteur d’inférence Cerebras ; pilotage de la prospection initiale auprès d’agences marketing.",
-      mondor: "Hôpital Henri Mondor (Stage Data Science) — Développement de modèles de prévision de séries temporelles, pipeline NLP, et outil d’analyse de financements.",
-      sopra: "Sopra Steria (Stage en calcul quantique) — Implémentation d’algorithmes d’optimisation sur atomes froids pour l’infrastructure télécom.",
-      farm: "Hedge’s Farm (Saisonnier à Sligo, Irlande) — Gestion du bétail et soins quotidiens, récolte des cultures, et travaux de maintenance."
+      balyasny: "Balyasny Asset Management — Stagiaire en Recherche Quantitative (Été 2026, Londres)",
+      mondor: "Hôpital Henri Mondor — Stagiaire Recherche Data Science (Été 2025, France)",
+      vibematch: "VibeMatch (Startup IA) — Co-fondateur & CEO (2024-2025)",
+      sopra: "Sopra Steria — Stagiaire Calcul Quantique (Été 2024, France)"
     },
     leadership: {
-      surf: "Président – Télécom Paris Surf Club — Organisation de surf trips sur la côte Atlantique (Lacanau, Biarritz), logistique et hébergement pour 40+ participants, coaching des débutants et développement du club.",
-      forum: "Secrétaire général – Forum Télécom Paris — Management d’une équipe de 48 personnes et d’un budget de 300k€ pour un salon accueillant 1 000+ étudiants et 90 entreprises ; 100k€ de bénéfice ; entretien Forbes.",
-      rugby: "Capitaine – Équipe de rugby de Télécom Paris — Entraînement et stratégie, coordination des tournois inter‑universitaires, cohésion et performance d’équipe."
+      surf: "Président – Télécom Paris Surf Club — Organisation de surf trips (Lacanau, Biarritz), gestion logistique pour 40+ participants.",
+      forum: "Secrétaire Général – Forum Télécom Paris — Gestion d'un budget de 300k€ et 48 membres ; cité dans Forbes Interview.",
+      rugby: "Capitaine – Équipe de Rugby Télécom Paris — Direction des entraînements, stratégie et tournois inter-universitaires."
     },
-    buttons: { visitApp: "Visiter le site", viewOnGithub: "Voir sur GitHub" },
+    buttons: { visitApp: "Visiter", viewOnGithub: "Voir sur GitHub" },
     footer: { copyright: "© Paul Archer 2025" }
   },
   de: {
     nav: { about: "Über mich", projects: "Projekte", experience: "Erfahrung", skills: "Fähigkeiten", leadership: "Leadership" },
     hero: {
-      title: "Paul Archer — Portfolio & CV",
-      tagline: "MSc Mathematics & Finance @ Imperial College London | Mitgründer @ VibeMatch",
-      quote: "Quantitative Finance, KI und fortgeschrittene mathematische Modellierung",
+      title: "Paul Archer",
+      tagline: "MSc Mathematics & Finance @ Imperial College London | Zukünftiger Quant Intern @ BAM",
+      quote: "Quantitative Forschung, Machine Learning & Quantencomputing",
       viewResume: "Lebenslauf ansehen",
       resumeTitle: "Lebenslauf — Paul Archer",
       openInNewTab: "In neuem Tab öffnen",
@@ -151,66 +157,69 @@ const dict = {
     },
     projects: {
       multiAsset: {
-        title: "Multi-Asset-Trading-Infrastruktur",
-        description: "Quantitatives Trading-System mit ML-Ensemble (XGBoost, LSTM, Transformers) und Echtzeit-Sentiment-Analyse (Bloomberg, Reuters, Reddit, Congressional Trading). Sharpe 1.34, 13% Jahresrendite, 6.8% max. Drawdown."
+        title: "Multi-Strategy Alpha Engine",
+        description: "Systematische Aktienstrategie mittels Bayesian Model Averaging (Transformer/LSTM/XGBoost) und NLP/NER-Pipeline. Sharpe 1.42."
       },
-      derivatives: {
-        title: "Derivate-Pricing-Engine",
-        description: "Hochleistungs-Pricing-Bibliothek mit Black-Scholes, Heston stochastischer Volatilität und Merton Jump-Diffusion-Modellen. Sub-Millisekunden Greeks-Berechnung mit automatischer Differentiation, Monte-Carlo-Simulation mit Varianzreduktion."
+      jpmorgan: {
+        title: "JP Morgan Data for Good (1. Platz)",
+        description: "Geodaten-Analyseplattform für Schulausbauten in UK mittels K-means/DBSCAN-Clustering."
       }
     },
     sections: {
-      about: { title: "Über mich", body: "Ich bin begeistert von Quantitative Finance und KI, mit starkem Hintergrund in stochastischer Modellierung, Machine Learning und algorithmischem Trading. Derzeit im MSc Mathematics & Finance am Imperial College London verbinde ich technisches Know‑how mit Unternehmergeist als Mitgründer von VibeMatch." },
+      about: { 
+        title: "Über mich", 
+        body: "Ich werde im Sommer 2026 als Quantitative Research Intern bei Balyasny Asset Management in einem L/S Equity Pod (Aerospace & Defense) tätig sein. Derzeit absolviere ich den MSc in Mathematik und Finanzen am Imperial College London und ein Ingenieursstudium an der Télécom Paris. Ich begeistere mich für Machine Learning, Finanzen und Quantencomputing. Zudem habe ich vibematch.tech mitbegründet." 
+      },
       projects: { title: "Projekte" },
       experience: { title: "Erfahrung" },
       skills: {
         title: "Fähigkeiten",
-        finance: "Finanzen",
+        finance: "Quantitative Methoden & Risiko",
         programming: "Programmierung",
         languages: "Sprachen",
         items: {
           finance: {
-            derivativesPricing: "Bewertung von Derivaten",
-            portfolioOptimization: "Portfolio‑Optimierung",
-            riskManagement: "Risikomanagement",
-            algorithmicTrading: "Algorithmischer Handel",
-            monteCarlo: "Monte‑Carlo‑Simulation"
+            derivativesPricing: "Monte Carlo, Zeitreihen (ARIMA, GARCH, VAR)",
+            portfolioOptimization: "PCA, Kointegration, Kalman-Filter",
+            riskManagement: "VaR, Expected Shortfall, Greeks",
+            algorithmicTrading: "Black-Scholes, Heston, Hull-White",
+            monteCarlo: "Cox Proportional Hazards"
           },
           programming: {
-            python: "Python (Pandas, Scikit‑Learn, PyTorch, QuantLib)",
-            cpp_r_matlab_sql_vba: "C++, R, MATLAB, SQL, VBA"
+            python: "Python (NumPy, Pandas, Scikit-Learn, PyTorch, QuantLib)",
+            cpp_r_matlab_sql_vba: "C++, R, SQL, Java, Excel VBA"
           },
           languages: {
             french: "Französisch (Muttersprache)",
             english: "Englisch (C2)",
             german: "Deutsch (B2)",
-            spanish: "Spanisch (A2)",
-            danish: "Dänisch (A1)"
+            spanish: "Spanisch (Fließend)",
+            danish: "Dänisch (Grundkenntnisse)"
           }
         }
       },
       leadership: { title: "Leadership & Aktivitäten" }
     },
     experience: {
-      vibematch: "VibeMatch (Mitgründer) — KI‑gestützte Plattform zur Vermittlung von Creators und Sponsoren mit Social‑Media‑Daten (YouTube, Instagram APIs) und Cerebras‑Inference; frühe Ansprache von Marketing‑Agenturen.",
-      mondor: "Henri‑Mondor‑Krankenhaus (Data‑Science‑Praktikum) — Zeitreihenprognosen, NLP‑Pipeline und Tool zur Finanzierungsanalyse entwickelt.",
-      sopra: "Sopra Steria (Quantencomputing‑Praktikum) — Optimierungsalgorithmen auf Kaltatomen für Telekom‑Netzinfrastruktur implementiert.",
-      farm: "Hedge’s Farm (Saisonarbeit in Sligo, Irland) — Tierpflege und Viehmanagement, Erntearbeiten sowie Instandhaltungs‑ und Reparaturtätigkeiten."
+      balyasny: "Balyasny Asset Management — Quantitative Research Intern (Sommer 2026, London)",
+      mondor: "Henri-Mondor-Krankenhaus — Data Science Research Intern (Sommer 2025, Frankreich)",
+      vibematch: "VibeMatch (KI-Startup) — Mitgründer & CEO (2024-2025)",
+      sopra: "Sopra Steria — Quantencomputing-Praktikum (Sommer 2024, Frankreich)"
     },
     leadership: {
-      surf: "Präsident – Télécom Paris Surf Club — Organisation von Surf‑Trips an die Atlantikküste (Lacanau, Biarritz), Logistik und Unterkunft für 40+ Teilnehmer, Coaching für Anfänger und Clubwachstum.",
-      forum: "Generalsekretär – Forum Télécom Paris — Leitung eines 48‑köpfigen Teams und 300k€ Budgets für eine Karrieremesse mit 1.000+ Studierenden und 90 Unternehmen; 100k€ Gewinn; Forbes‑Interview.",
-      rugby: "Teamkapitän – Rugby‑Team von Télécom Paris — Training und Strategie, Koordination interuniversitärer Turniere, Förderung von Teamzusammenhalt und Leistung."
+      surf: "Präsident – Télécom Paris Surf Club — Organisation von Surf-Trips (Lacanau, Biarritz), Logistik für 40+ Teilnehmer.",
+      forum: "Generalsekretär – Forum Télécom Paris — Leitung eines 300k€ Budgets und 48 Mitgliedern; Forbes Interview.",
+      rugby: "Rugby-Team von Télécom Paris — Teamkapitän."
     },
     buttons: { visitApp: "App besuchen", viewOnGithub: "Auf GitHub ansehen" },
     footer: { copyright: "© Paul Archer 2025" }
   },
   es: {
-    nav: { about: "Acerca de", projects: "Proyectos", experience: "Experiencia", skills: "Habilidades", leadership: "Liderazgo" },
+    nav: { about: "Sobre mí", projects: "Proyectos", experience: "Experiencia", skills: "Habilidades", leadership: "Liderazgo" },
     hero: {
-      title: "Paul Archer — Portfolio & CV",
-      tagline: "MSc Mathematics & Finance @ Imperial College London | Cofundador @ VibeMatch",
-      quote: "Finanzas cuantitativas, IA y modelización matemática avanzada",
+      title: "Paul Archer",
+      tagline: "MSc Mathematics & Finance @ Imperial College London | Futuro Intern Quant @ BAM",
+      quote: "Investigación Cuantitativa, Machine Learning y Computación Cuántica",
       viewResume: "Ver CV",
       resumeTitle: "CV — Paul Archer",
       openInNewTab: "Abrir en nueva pestaña",
@@ -218,58 +227,61 @@ const dict = {
     },
     projects: {
       multiAsset: {
-        title: "Infraestructura de Trading Multi-Activos",
-        description: "Sistema de trading cuantitativo combinando ensemble ML (XGBoost, LSTM, Transformers) con análisis de sentimiento en tiempo real (Bloomberg, Reuters, Reddit, Congressional trading). Sharpe 1.34, 13% rendimientos anuales, 6.8% drawdown máximo."
+        title: "Multi-Strategy Alpha Engine",
+        description: "Estrategia de renta variable sistemática usando Bayesian Model Averaging (Transformer/LSTM/XGBoost) y pipeline NLP. Sharpe 1.42."
       },
-      derivatives: {
-        title: "Motor de Pricing de Derivados",
-        description: "Biblioteca de alto rendimiento implementando Black-Scholes, volatilidad estocástica Heston y modelos Merton jump-diffusion. Cálculo de Griegas sub-milisegundo con diferenciación automática, simulación Monte Carlo con reducción de varianza."
+      jpmorgan: {
+        title: "JP Morgan Data for Good (1er Puesto)",
+        description: "Plataforma de análisis geoespacial para la expansión escolar en el Reino Unido mediante clustering K-means/DBSCAN."
       }
     },
     sections: {
-      about: { title: "Acerca de mí", body: "Entusiasta de las finanzas cuantitativas y la IA con sólida base en modelización estocástica, aprendizaje automático y trading algorítmico. Actualmente cursando el MSc en Mathematics & Finance en Imperial College London, combino la experiencia técnica con emprendimiento como cofundador de VibeMatch." },
+      about: { 
+        title: "Sobre mí", 
+        body: "Me uniré a Balyasny Asset Management como pasante de Investigación Cuantitativa (Verano 2026) en un pod L/S Equity (Aerospace & Defense). Actualmente curso el MSc en Matemáticas y Finanzas en el Imperial College London y estudio ingeniería en Télécom Paris. Me apasiona el Machine Learning, las Finanzas y la Computación Cuántica. También cofundé vibematch.tech." 
+      },
       projects: { title: "Proyectos" },
       experience: { title: "Experiencia" },
       skills: {
         title: "Habilidades",
-        finance: "Finanzas",
+        finance: "Métodos Cuantitativos y Riesgo",
         programming: "Programación",
         languages: "Idiomas",
         items: {
           finance: {
-            derivativesPricing: "Valoración de derivados",
-            portfolioOptimization: "Optimización de carteras",
-            riskManagement: "Gestión de riesgos",
-            algorithmicTrading: "Trading algorítmico",
-            monteCarlo: "Simulación de Monte Carlo"
+            derivativesPricing: "Monte Carlo, Series Temporales (ARIMA, GARCH, VAR)",
+            portfolioOptimization: "PCA, Cointegración, Filtro de Kalman",
+            riskManagement: "VaR, Expected Shortfall, Griegas",
+            algorithmicTrading: "Black-Scholes, Heston, Hull-White",
+            monteCarlo: "Cox Proportional Hazards"
           },
           programming: {
-            python: "Python (Pandas, Scikit‑Learn, PyTorch, QuantLib)",
-            cpp_r_matlab_sql_vba: "C++, R, MATLAB, SQL, VBA"
+            python: "Python (NumPy, Pandas, Scikit-Learn, PyTorch, QuantLib)",
+            cpp_r_matlab_sql_vba: "C++, R, SQL, Java, Excel VBA"
           },
           languages: {
-            french: "Francés (nativo)",
+            french: "Francés (Nativo)",
             english: "Inglés (C2)",
             german: "Alemán (B2)",
-            spanish: "Español (A2)",
-            danish: "Danés (A1)"
+            spanish: "Español (Fluido)",
+            danish: "Danés (Básico)"
           }
         }
       },
-      leadership: { title: "Liderazgo y actividades" }
+      leadership: { title: "Liderazgo y Actividades" }
     },
     experience: {
-      vibematch: "VibeMatch (Cofundador) — Plataforma de emparejamiento creador‑patrocinador impulsada por IA, con integración de datos sociales (APIs de YouTube e Instagram) y motor de inferencia Cerebras; contacto inicial con agencias de marketing.",
-      mondor: "Hospital Henri Mondor (Prácticas de Ciencia de Datos) — Desarrollo de modelos de series temporales, pipeline de NLP y herramienta de análisis de financiación.",
-      sopra: "Sopra Steria (Prácticas de Computación Cuántica) — Implementación de algoritmos de optimización con átomos fríos para infraestructura de telecomunicaciones.",
-      farm: "Hedge’s Farm (Trabajador temporal en Sligo, Irlanda) — Gestión del ganado y cuidados diarios, cosecha de cultivos y trabajos de mantenimiento."
+      balyasny: "Balyasny Asset Management — Pasante de Investigación Cuantitativa (Verano 2026, Londres)",
+      mondor: "Hospital Henri Mondor — Pasante de Investigación en Data Science (Verano 2025, Francia)",
+      vibematch: "VibeMatch (Startup IA) — Cofundador y CEO (2024-2025)",
+      sopra: "Sopra Steria — Pasante de Computación Cuántica (Verano 2024, Francia)"
     },
     leadership: {
-      surf: "Presidente – Télécom Paris Surf Club — Organización de viajes de surf por la costa atlántica (Lacanau, Biarritz), logística y alojamiento para más de 40 participantes, entrenamiento a principiantes y crecimiento del club.",
-      forum: "Secretario General – Forum Télécom Paris — Dirección de un equipo de 48 personas y un presupuesto de 300k€ para una feria con 1.000+ estudiantes y 90 empresas; 100k€ de beneficio; entrevista en Forbes.",
-      rugby: "Capitán del equipo – Rugby de Télécom Paris — Liderazgo en entrenamientos y estrategia, coordinación de torneos interuniversitarios, fomento de la cohesión y rendimiento del equipo."
+      surf: "Presidente – Télécom Paris Surf Club — Organización de viajes de surf (Lacanau, Biarritz), logística para 40+ participantes.",
+      forum: "Secretario General – Forum Télécom Paris — Dirección de un presupuesto de 300k€ y un equipo de 48 personas para una feria con 1.000+ estudiantes y 90 empresas ; 100k€ de beneficio ; entrevista en Forbes.",
+      rugby: "Equipo de Rugby de Télécom Paris — Capitán."
     },
-    buttons: { visitApp: "Visitar sitio", viewOnGithub: "Ver en GitHub" },
+    buttons: { visitApp: "Visitar", viewOnGithub: "Ver en GitHub" },
     footer: { copyright: "© Paul Archer 2025" }
   }
 } as const;

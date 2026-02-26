@@ -38,6 +38,26 @@ const Index = () => {
   };
   const d = projectDescriptions[lang];
 
+  const linkifyAbout = (text: string) => {
+    const parts = text.split(/(vibematch\.tech)/);
+    return parts.map((part, i) => {
+      if (part === "vibematch.tech") {
+        return (
+          <a
+            key={i}
+            href="https://vibematch.tech"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="story-link-static"
+          >
+            {part}
+          </a>
+        );
+      }
+      return <span key={i}>{part}</span>;
+    });
+  };
+
   const linkifyForbes = (text: string) => {
     const parts = text.split(/(Forbes(?:[\u2011\u2010\u2013\u2014\-]Interview)?)/);
     return parts.map((part, i) => {
@@ -111,8 +131,8 @@ const Index = () => {
           <header className="mb-6">
             <h2 className="text-2xl font-semibold">{t("sections.about.title")}</h2>
           </header>
-          <p className="text-muted-foreground max-w-3xl animate-fade-in">
-            {t("sections.about.body")}
+          <p className="text-muted-foreground max-w-3xl animate-fade-in leading-relaxed">
+            {linkifyAbout(t("sections.about.body"))}
           </p>
         </section>
 
@@ -160,10 +180,10 @@ const Index = () => {
             <h2 className="text-2xl font-semibold">{t("sections.experience.title")}</h2>
           </header>
           <ul className="space-y-4 text-muted-foreground">
+            <li>{renderDashLine(t("experience.balyasny"))}</li>
             <li>{renderDashLine(t("experience.vibematch"))}</li>
             <li>{renderDashLine(t("experience.mondor"))}</li>
             <li>{renderDashLine(t("experience.sopra"))}</li>
-            <li>{renderDashLine(t("experience.farm"))}</li>
           </ul>
         </section>
 
