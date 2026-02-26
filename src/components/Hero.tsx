@@ -12,8 +12,8 @@ const Hero = () => {
     <section id="home" className="relative isolate overflow-hidden bg-secondary/40">
       <div className="container relative py-20 md:py-28">
         <div className="relative z-10 mx-auto max-w-3xl text-center animate-enter">
-          <div className="mb-6 flex justify-center">
-            <Avatar className="h-28 w-28 ring-1 ring-accent/30 shadow-sm">
+          <div className="mb-8 flex justify-center">
+            <Avatar className="h-40 w-40 ring-2 ring-accent/20 shadow-lg transition-transform hover:scale-105 duration-300">
               <AvatarImage src="/paul-archer.jpg" alt="Portrait of Paul Archer - quantitative finance" />
               <AvatarFallback>PA</AvatarFallback>
             </Avatar>
